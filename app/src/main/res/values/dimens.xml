@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_radius">16dp</dimen>
+    <dimen name="button_radius">16dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
+    <dimen name="header_icon">56dp</dimen>
+    <dimen name="calculate_height">56dp</dimen>
+    <dimen name="table_row_padding_v">8dp</dimen>
+    <dimen name="table_cell_padding_h">6dp</dimen>
+</resources>
