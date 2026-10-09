@@ -22,12 +22,12 @@ Pick a month, then write notes like this:
 
 ```text
 5- wifi bill-589
-Mandir-11
+Milk packet-11
 Juice-120
 11-
 milk-46
 Salary =+25000
-Prince +1500
+Poster +1500
 ```
 
 - A day line starts with `11-` or `11- milk-46`. Later lines keep that day until you set a new one.
