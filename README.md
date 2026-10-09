@@ -1,79 +1,162 @@
 # Expenso
 
-A simple, offline-first Android expense manager that turns everyday notes into organized tables, totals income and spending, and keeps monthly finances in one place.
+### Less Writing. Easy Life.
 
-Write expenses the way you already jot them down. Expenso parses the text, saves it on the device, and shows clear totals. There is no login, no cloud account, and no network requirement.
+**Expenso** is an offline-first Android expense manager that transforms simple, Notes-style entries into organized financial records. Write expenses in your usual format, and Expenso automatically parses transactions, calculates totals, and organizes your finances by month and account.
 
-Repository: [om-kumar-singh/Expenso](https://github.com/om-kumar-singh/Expenso)
+No complicated forms. No login. No cloud dependency. Just write, calculate, and track.
 
-## Features
+<p align="center">
+  <strong>Private by design · Offline first · Built for simplicity</strong>
+</p>
 
-- **Notes-style entry** — type a day, then list expenses and income on following lines
-- **Monthly overview** — saved months with expenses, received, and net
-- **Transaction table** — Date, Account, Description, Expense, Received
-- **Invalid-line highlighting** — skipped lines are listed with a reason; tap to jump back in the editor
-- **Multiple accounts** — default “My Expenses”, plus create, rename, delete, and combined views
-- **Custom period** — pick a start and end date and see totals across that range
-- **Offline Room storage** — notes and transactions stay on the phone
+---
 
-## Notes format
+## ✨ Features
 
-Pick a month, then write notes like this:
+- **Notes-Style Entry** — Record expenses and income using simple text instead of filling out forms.
+- **Automatic Parsing** — Convert your notes into structured transactions with dates, descriptions, expenses, and income.
+- **Monthly Dashboard** — View monthly expenses, money received, net balance, and transaction counts.
+- **Transaction Tables** — Review organized financial records with aligned columns and readable amounts.
+- **Smart Error Handling** — Identify invalid entries, understand why they failed, and jump directly to the affected line.
+- **Multiple Accounts** — Create and manage separate accounts and view combined financial summaries.
+- **Custom Date Ranges** — Calculate spending and income for a particular day or any selected period.
+- **Local Persistence** — Save notes and transactions on your device using Room.
+- **Offline Operation** — No account registration, cloud service, or internet connection required for core functionality.
+
+## 📱 How It Works
+
+**1. Write your notes**
+
+Use the same format you already use in your phone's Notes app.
+
+**2. Let Expenso organize them**
+
+The app parses your entries into dated transactions and separates expenses from money received.
+
+**3. Review your finances**
+
+View monthly summaries, account-wise totals, combined records, or custom date-range reports.
+
+## 📝 Notes Format
+
+Select a month and enter transactions like this:
 
 ```text
 5- wifi bill-589
 Milk packet-11
 Juice-120
+
 11-
 milk-46
 Salary =+25000
 Poster +1500
 ```
 
-- A day line starts with `11-` or `11- milk-46`. Later lines keep that day until you set a new one.
-- Expenses use `description-amount` (for example `milk-46`).
-- Income uses `Name=+1500`, `Name +1500`, or `Name-+1500`.
-- Blank lines are ignored. Invalid lines are skipped and reported instead of crashing the parse.
+### Supported syntax
 
-## App screens
+| Format | Meaning |
+|---|---|
+| `11-` | Set the current entry date to day 11 |
+| `11- milk-46` | Record an expense on day 11 |
+| `milk-46` | Record a ₹46 expense |
+| `Salary =+25000` | Record ₹25,000 received |
+| `Poster +1500` | Record ₹1,500 received |
 
-| Screen | What it does |
-| --- | --- |
-| **Months** | List saved months, filter by account, open a month, or write a new note |
-| **Accounts** | Manage expense accounts |
-| **Period** | Calculate totals between two dates |
-| **Month detail** | Compact transaction table and Edit Notes |
-| **Notes editor** | Blank editor for a new month, or edit existing notes and Calculate |
+Subsequent entries inherit the most recently specified day. Blank lines are ignored. Invalid entries are reported without preventing valid transactions from being processed.
 
-## Stack
+## 📊 Financial Tracking
 
-- Kotlin + XML views (no Jetpack Compose)
-- Material components and View Binding
-- Room for local persistence
-- No Firebase, no REST APIs, no extra third-party SDKs beyond AndroidX / Material / KSP
+Expenso calculates three essential figures:
 
-Package and application id: `com.example.expensesbyom`
+- **Total Expenses** — The sum of outgoing transactions.
+- **Total Received** — The sum of incoming transactions.
+- **Net Balance** — Total received minus total expenses.
 
-## Requirements
+You can view these figures for an individual month, a selected account, multiple accounts, or a custom date range.
+
+## 🧭 App Sections
+
+| Section | Purpose |
+|---|---|
+| **Months** | Browse monthly summaries and open saved records |
+| **Accounts** | Create, rename, and manage expense accounts |
+| **Period** | Calculate totals for custom date ranges |
+| **Month Detail** | Review a month's transaction table |
+| **Notes Editor** | Enter, edit, and recalculate transactions |
+
+## 🛠️ Technology Stack
+
+- **Language:** Kotlin
+- **UI:** Android XML Views
+- **UI Components:** Material Components and View Binding
+- **Local Database:** Room
+- **Build System:** Gradle
+- **Architecture:** Native Android, offline-first
+
+No Firebase, REST APIs, or cloud database is required for the core application.
+
+## 🚀 Getting Started
+
+### Requirements
 
 - Android 8.0 (API 26) or later
-- Android Studio with JDK 17+ (the project builds with the Android Studio JBR)
-- Gradle 9.3.1 (wrapper included)
+- Android Studio
+- Compatible JDK for the project's Gradle and Android Gradle Plugin versions
+- Gradle Wrapper included in the repository
 
-## Build
+### Clone the repository
 
 ```bash
-./gradlew :app:testDebugUnitTest :app:assembleDebug
+git clone https://github.com/om-kumar-singh/Expenso.git
+cd Expenso
 ```
 
-On Windows:
+Open the project in Android Studio and allow Gradle synchronization to finish.
+
+### Build and test
+
+**Windows — PowerShell**
 
 ```powershell
 .\gradlew.bat :app:testDebugUnitTest :app:assembleDebug
 ```
 
-The debug APK is written to `app/build/outputs/apk/debug/`.
+**Linux / macOS**
 
-## License
+```bash
+./gradlew :app:testDebugUnitTest :app:assembleDebug
+```
 
-This project is licensed under the [MIT License](LICENSE). Copyright (c) 2026 Om Kumar Singh.
+The debug APK is generated at:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+Install the APK on a compatible Android device to use the application.
+
+## 🔒 Privacy
+
+Expenso is designed to keep financial records on your device. Its core functionality does not require an online account or remote database.
+
+Keep in mind that locally stored data may be lost if the app's data is cleared or the app is uninstalled. Consider maintaining a secure backup of important records.
+
+## 📄 License
+
+**Proprietary License — All Rights Reserved**
+
+Copyright © 2026 Om Kumar Singh.
+
+This project is proprietary software. No permission is granted to copy, modify, redistribute, sublicense, publish, or commercially exploit this software without the copyright holder's prior written authorization, except where applicable law or the hosting platform's terms provide otherwise.
+
+For permission to use or distribute this software, contact the copyright holder.
+
+See the [`LICENSE`](LICENSE) file for the complete terms.
+
+---
+
+<p align="center">
+  <strong>Expenso</strong><br>
+  Less Writing. Easy Life.
+</p>
